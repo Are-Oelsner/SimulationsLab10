@@ -12,8 +12,8 @@ m = 1/(nu - lambda)# theoretical mean sojourn time for ssq
 # b = batch size
 # n = number of batches (numJobs/b)
 ymin = 0
-ymax = 30
-yby = 5
+ymax = 18
+yby = 3
 confLevel = 0.95# Confidence Level
 
 batchSizes <- c(64, 128, 256, 512, 1024, 2048)
