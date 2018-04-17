@@ -2,7 +2,7 @@
 # Simulations Lab 10b
 
 N = 100            # Number of CIs to generate
-set.seed(28545965) # Student ID
+initialSeed = 5612127090  # Student ID
 numJobs = 65536    # number of jobs
 #numJobs = 500
 warmup = 1024      # length of warmup period to be removed
@@ -11,14 +11,15 @@ nu = 10/9          # nu
 m = 1/(nu - lambda)# theoretical mean sojourn time for ssq
 # b = batch size
 # n = number of batches (numJobs/b)
-ymin = 0
-ymax = 18
-yby = 3
+ymin = 6
+ymax = 14
+yby = 2
 confLevel = 0.95# Confidence Level
 
 batchSizes <- c(64, 128, 256, 512, 1024, 2048)
 
 for(i in 1:6) {
+  set.seed(561212709) # Student ID
   b = batchSizes[i]
   n = numJobs/b
   
@@ -47,7 +48,7 @@ for(i in 1:6) {
       lines(x = c(i, i), y = t$conf.int)
     }
   }
-  legend("topright", legend = c(paste("batch size = ", b), paste("misses = ", misses)))#, cex = c(.5, .5))
+  legend("topright", legend = c(paste("batch size = ", b), paste("misses = ", misses), paste("seed=", seed)))#, cex = c(.5, .5))
   dev.off()
 }
 
